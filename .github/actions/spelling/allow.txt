@@ -611,6 +611,7 @@ unittest
 unixodbc
 upx
 URI
+uri
 URIs
 url
 urlopen
@@ -674,5 +675,4 @@ zsh
 zshrc
 zst
 zstd
-uri
 
