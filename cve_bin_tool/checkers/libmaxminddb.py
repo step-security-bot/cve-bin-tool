@@ -1,0 +1,20 @@
+# Copyright (C) 2026 danielfonkaz
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+"""
+CVE checker for libmaxminddb
+
+References:
+https://www.cvedetails.com/product/90894/Maxmind-Libmaxminddb.html?vendor_id=24085
+"""
+
+from cve_bin_tool.checkers import Checker
+
+
+class LibmaxminddbChecker(Checker):
+    CONTAINS_PATTERNS = ["MaxMind.com"]
+    FILENAME_PATTERNS = [r"libmaxminddb\.so"]
+    VERSION_PATTERNS = [
+        r"MaxMind\.com[a-z_\r?\n]*\r?\n(\d+\.\d+\.\d+)\r?\n",
+    ]
+    VENDOR_PRODUCT = [("maxmind", "libmaxminddb")]
