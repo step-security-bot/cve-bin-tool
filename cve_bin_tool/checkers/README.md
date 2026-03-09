@@ -1,0 +1,1 @@
+../../doc/checkers/README.md
