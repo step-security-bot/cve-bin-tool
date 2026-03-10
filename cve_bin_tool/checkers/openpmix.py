@@ -1,0 +1,22 @@
+# Copyright (C) 2026 danielfonkaz
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+"""
+CVE checker for openpmix
+
+References:
+https://www.cvedetails.com/product/160844/Openpmix-Openpmix.html?vendor_id=32842
+"""
+
+from cve_bin_tool.checkers import Checker
+
+
+class OpenpmixChecker(Checker):
+    CONTAINS_PATTERNS: list[str] = []
+    FILENAME_PATTERNS = [r"libpmix\.so"]
+    VERSION_PATTERNS = [
+        r"OpenPMIx ([0-9]+\.[0-9]+\.[0-9]+)",
+        # matches older versions
+        r"PMIX.*version ([0-9]+\.[0-9]+\.[0-9]+)",
+    ]
+    VENDOR_PRODUCT = [("openpmix", "openpmix")]
