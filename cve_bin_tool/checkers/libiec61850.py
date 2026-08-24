@@ -1,0 +1,20 @@
+# Copyright (C) 2026 danielfonkaz
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+"""
+CVE checker for libiec61850
+
+References:
+https://www.cvedetails.com/product/51119/Mz-automation-Libiec61850.html?vendor_id=19428
+"""
+
+from cve_bin_tool.checkers import Checker
+
+
+class Libiec61850Checker(Checker):
+    CONTAINS_PATTERNS: list[str] = [r"LibIEC61850_getVersionString"]
+    FILENAME_PATTERNS = [r"libiec61850\.so", r"iec61850\.so"]
+    VERSION_PATTERNS = [
+        r"LIBIEC61850[\r\n]+([0-9]+\.[0-9]+\.[0-9]+)",
+    ]
+    VENDOR_PRODUCT = [("mz-automation", "libiec61850")]
